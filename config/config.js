@@ -1,0 +1,5 @@
+module.exports = {
+	TOP_PRODUCTS: 10,
+	PRODUCTS_PER_PAGE: 12,
+	RELATIVE_PRODUCTS: 5
+}

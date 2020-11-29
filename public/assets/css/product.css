@@ -1,0 +1,69 @@
+.price {
+	color: red;
+	font-size: 18px;
+}
+
+.card {
+	background-color: white;
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 20px;
+	height: 350px;
+}
+
+.card-title {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	font-size: 18px;
+	height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.btn-search {
+	margin: 10px 0;
+	width: 100% !important;
+}
+.row {
+	margin-bottom: 10px;
+}
+
+.card-btn {
+	display: block;
+	width: 90px !important;
+}
+
+.card-img-top {
+	height: 200px;
+}
+
+.btn {
+	width: 85px;
+}
+
+.card-li {
+	text-align: center;
+}
+
+.noproduct-container {
+	margin-top: 45px;
+    text-align: center;
+    padding: 50px;
+}
+
+.noproduct-message {
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.well {
+	background-color: white;
+}

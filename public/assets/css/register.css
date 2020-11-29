@@ -1,0 +1,44 @@
+.header-title {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.my-container {
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.body-container {
+	background-color: white;
+	padding: 30px;
+}
+
+.head-box-title {
+	margin-bottom: 4px;
+}
+
+.box-title {
+	margin-top: 30px;
+	margin-bottom: 4px;
+}
+
+.box {
+	height: 40px !important;
+}
+
+.btn-register {
+	margin-top: 36px;
+	width: 100%;
+	height: 40px;
+}
+
+.error-message {
+	color: red;
+	font-style: italic;
+	font-size: 12px;
+	margin-bottom: 40px;
+}
+
+.g-recaptcha {
+	margin-top: 34px;
+}

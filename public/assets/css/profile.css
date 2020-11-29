@@ -1,0 +1,132 @@
+.header-title {
+    color: #3d3d3d;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.order-table {
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.order-table-header tr td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.order-table-date {
+    text-align: left !important;
+    padding-left: 20px !important;
+}
+
+.order-table-status {
+    text-align: left !important;
+}
+
+.order-table-detail {
+    text-align: right !important;
+    padding-right: 20px !important;
+}
+
+.order-table-detail a:hover, .order-table-detail a:visited, .order-table-detail a:link, .order-table-detail a:active {
+    text-decoration: none;
+}
+
+.order-table-image {
+    width: 80px;
+    margin: 10px;
+    padding: 0;
+    border: 1px solid whitesmoke;
+}
+
+.order-table td, .order-table th {
+    border-bottom: 2px solid whitesmoke;
+    text-align: center;
+}
+
+.order-table-name {
+    font-size: 16px;
+}
+
+.order-table-price {
+    font-size: 16px;
+    color: #3d3d3d;
+}
+
+.order-table-quantity {
+    width: 100%;
+    display: table;
+}
+
+.order-table-quantity-label {
+    color: #c9c9c9;
+}
+
+.order-table-total-label {
+    padding: 10px;
+}
+.order-empty {
+    background-color: white;
+    text-align: center;
+    padding: 100px;
+}
+
+.order-empty-image {
+    width: 150px;
+}
+
+.order-empty-message {
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-top: 30px;
+}
+
+.btn-contain {
+    margin-top: 75px;
+}
+
+.order-btn {
+    width: 100%;
+}
+
+.btn-down {
+    margin-top: 20px;
+    margin-bottom: 300px;
+}
+
+.body-container {
+    background-color: white;
+    padding: 20px;
+}
+
+.head-box-title {
+    margin-bottom: 4px;
+}
+
+.box-title {
+    margin-top: 25px;
+    margin-bottom: 4px;
+}
+
+.box {
+    height: 40px !important;
+}
+
+.btn-change-password {
+    margin-top: 25px;
+    width: 100%;
+    height: 40px;
+}
+
+.btn-update {
+    margin-top: 45px;
+    width: 100%;
+    height: 40px;
+}
+
+.error-message {
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+    margin-bottom: 40px;
+}

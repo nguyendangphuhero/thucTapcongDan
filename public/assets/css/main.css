@@ -1,0 +1,44 @@
+#logo-link {
+	background-color: white;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#logo-image {
+	height: 46px;
+	margin-top: -12px
+}
+
+#search-box {
+	width: 400px
+}
+
+#search-btn {
+	width: 50px;
+}
+
+.dropdown:hover>.dropdown-menu {
+	display: block;
+}
+
+.footer-bottom-area {
+    background: none repeat scroll 0 0 #000;
+    color: #fff;
+    padding: 20px;
+    margin-top: 50px;
+    text-align: left !important;
+}
+.footer-contain {
+	margin-left: 5%;
+    margin-right: 5%;
+}
+
+.admin-body {
+	background-color: white;
+	margin-top: 10px;
+	margin-bottom: 100px;
+}
+
+.td_center {
+	text-align: center;
+}
