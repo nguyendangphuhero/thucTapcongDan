@@ -1,0 +1,35 @@
+.header-title {
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+
+.body-contain {
+	margin-left: 35%;
+	margin-right: 35%;
+	margin-bottom: 100px;
+}
+
+.form-contain {
+	background-color: white;
+	padding: 30px;
+}
+
+.box {
+	height: 40px !important;
+}
+
+.username-title {
+	margin-bottom: 4px;
+}
+
+.password-title {
+	margin-top: 40px;
+	margin-bottom: 4px;
+}
+
+#btn-sign-in {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	width: 100%;
+	height: 40px;
+}

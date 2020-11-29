@@ -1,0 +1,35 @@
+.main-container {
+  padding-bottom: 40px; padding-top:20px;
+}
+
+.top-product .owl-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.top-product .owl-nav div, .related-products-wrapper .owl-nav div {
+  background:#347AB6;
+  color:#FFF;
+  display: inline-block;
+  margin-left: 15px;
+  padding: 1px 10px;
+}
+
+.top-product .owl-nav div:hover, .brand-wrapper .owl-nav div:hover, .related-products-wrapper .owl-nav div:hover {
+  color: #FFF; background: #28608F;
+}
+
+.top-title {
+  background-color: white;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.product-carousel {
+  padding-top: 40px;
+}
