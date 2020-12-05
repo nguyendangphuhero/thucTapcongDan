@@ -1,0 +1,29 @@
+.price {
+	color: red;
+}
+
+.card {
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 20px;
+	height: 340px;
+}
+
+.button-container {
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.row {
+	margin-bottom: 20px;
+}
+
+.card-btn {
+	display: block;
+	width: 90px !important;
+}
+
+.card-img-top {
+	width: 100%;
+}

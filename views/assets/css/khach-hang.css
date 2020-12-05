@@ -1,0 +1,49 @@
+.pane-header {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.white-background {
+    background-color: white;
+    padding: 30px;
+}
+
+.tt-btn {
+    width: 270px !important;
+}
+
+.list {
+    margin-top: 75px;
+}
+
+.btn-list {
+    width: 100%;
+}
+
+.btn-update {
+    margin-bottom: 20px;
+}
+
+.my-profile-item-title {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.my-profile-item {
+    width: 300px;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.my-profile-item-info {
+    font-size: 15px;
+}
+
+.btn-update-infor {
+    width: 49%;
+    margin-top: 20px;
+}
+
+.change-password {
+    width: 400px;
+}
