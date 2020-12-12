@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Quản trị</title>
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+	{{{_sections.css}}}
+</head>
+<body style="background-color: whitesmoke">
+	<div class="container-fluid">
+		<div class="row">
+			<nav id="navbar" class="navbar navbar-inverse navbar-static-top"">
+				<div class="container">
+					<div class="navbar-header">
+						<a id="logo-link" class="navbar-brand" href="/home">
+							<img id="logo-image" src="/image/logo.png" alt="logo">
+						</a>
+					</div>
+
+					<ul class="nav navbar-nav">
+						<li><a href="/admin/product/index">QUẢN LÝ SẢN PHẤM</a></li>
+						<li><a href="/admin/category/index">QUẢN LÝ DANH MỤC</a></li>
+						<li><a href="/admin/manufacturer/index">QUẢN LÝ NHÀ SẢN XUẤT</a></li>
+						<li><a href="/admin/order/index">QUẢN LÝ ĐƠN HÀNG</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<form id="frmLogout" method="post" action="/account/logout"></form>
+						<li><a href="/cart">GIỎ HÀNG({{layoutVM.cartQuantity}})</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="/account/profile">
+								{{upper_case layoutVM.user.f_Name}}
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="/admin/product/index" onclick="">Quản trị</a></li>
+								<li><a href="/account/profile" onclick="">Cập nhật thông tin</a></li>
+								<li><a href="/account/order" onclick="">Lịch sử mua hàng</a></li>
+								<li><a id="lnkLogout" href="javascript:;">Đăng xuất</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			{{{_sections.title}}}
+		</div>
+		<div class="row admin-body">
+			{{{body}}}
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="/assets/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$('#lnkLogout').on('click', function() {
+			$('#frmLogout').submit();
+		});
+	</script>
+	{{{_sections.js}}}
+</body>
+</html>

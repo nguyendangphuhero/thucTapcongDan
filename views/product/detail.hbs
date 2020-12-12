@@ -1,0 +1,157 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/detail.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/product.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+{{/section}}
+
+{{#if noProduct}}
+<div class="no-product-container">
+    <img src="/image/no-products-found.png" height="250px">
+	<p class="no-product-message">{{message}}</p>
+    <a class="lnk-home" href="/">VỀ TRANG CHỦ</a>
+</div>
+{{else}}
+{{#with product}}
+<div class="container product-name">{{ProName}}</div>
+<div class="container">
+	<div class="col-lg-6">
+		<div class="large-container">
+			<img class="large" src="/image/products/{{ProID}}/thumb-front.jpg">
+			<img class="large" src="/image/products/{{ProID}}/thumb-mid.jpg">
+			<img class="large" src="/image/products/{{ProID}}/thumb-back.jpg">
+		</div>
+		<div class="small-container">
+			<img class="small" src="/image/products/{{ProID}}/thumb-front.jpg" onclick="show(1)">
+			<img class="small" src="/image/products/{{ProID}}/thumb-mid.jpg" onclick="show(2)">
+			<img class="small" src="/image/products/{{ProID}}/thumb-back.jpg" onclick="show(3)">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="row">
+			<div class="col-lg-6 product-price">
+				<strong >{{number_format Price}} ₫</strong>
+			</div>
+			<div class="col-lg-6">
+				<form method="post" action="/product/detail">
+    				<input type="hidden" name="proId" value="{{ProID}}">
+    				{{#if ../layoutVM.isLogged}}
+					<button class="btn btn-danger btn-lg btn-add-to-cart" type="submit">
+						MUA NGAY 
+						<span class="glyphicon glyphicon-shopping-cart"></span>
+					</button>
+					{{/if}}
+				</form>
+			</div>
+		</div>
+		<div class="product-infor">
+			<hr><div class="row">
+				<div class="col-lg-3">Số lượt xem:</div>
+				<div class="col-lg-9">{{View}}</div>
+			</div>
+			<hr><div class="row">
+				<div class="col-lg-3">Số lượng bán:</div>
+				<div class="col-lg-9">{{Sold}}</div>
+			</div>
+			<hr><div class="row">
+				<div class="col-lg-3">Xuất xứ:</div>
+				<div class="col-lg-9">{{Origin}}</div>
+			</div>
+			<hr><div class="row">
+				<div class="col-lg-3">Loại:</div>
+				<div class="col-lg-9">{{CatName}}</div>
+			</div>
+			<hr><div class="row">
+				<div class="col-lg-3">Nhà sản xuất:</div>
+				<div class="col-lg-9">{{ManName}}</div>
+			</div>
+			<hr><div class="row">
+				<div class="col-lg-3">Mô tả:</div>
+				<div class="col-lg-9">{{TinyDes}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{/with}}
+<div class="container product-relative-title">Sản phẩm cùng loại</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="top-product">
+				<div class="product-carousel">
+					{{#each relativeByCat}}
+					<div class="card">
+						<img class="card-img-top" src="/image/products/{{ProID}}/thumb.jpg">
+						<div class="card-body">
+							<div class="card-title">
+								{{ProName}}
+							</div>
+							<p class="price">
+								<strong>{{number_format Price}}₫</strong>
+							</p>
+							<a href="/product/detail/{{ProID}}" class="btn btn-primary">Chi tiết</a>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container product-relative-title">Sản phẩm cùng hãng</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="top-product">
+				<div class="product-carousel">
+					{{#each relativeByMan}}
+					<div class="card">
+						<img class="card-img-top" src="/image/products/{{ProID}}/thumb.jpg">
+						<div class="card-body">
+							<div class="card-title">
+								{{ProName}}
+							</div>
+							<p class="price">
+								<strong>{{number_format Price}}₫</strong>
+							</p>
+							<a href="/product/detail/{{ProID}}" class="btn btn-primary">Chi tiết</a>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{/if}}
+
+{{#section 'js'}}
+<script type="text/javascript" src="/assets/js/detail.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
+<!-- jQuery sticky menu -->
+<script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.sticky.js"></script>
+
+<!-- jQuery easing -->
+<script type="text/javascript" src="/assets/js/jquery.easing.1.3.min.js"></script>
+
+<!-- Main Script -->
+<script type="text/javascript" src="/assets/js/main.js"></script>
+
+<!-- Slider -->
+<script type="text/javascript" src="/assets/js/bxslider.min.js"></script>
+<script type="text/javascript" src="/assets/js/script.slider.js"></script>
+
+{{#if isAlert}}
+<script type="text/javascript">
+    setTimeout(function() {
+        alert("{{alertMessage}}");
+    }, 300);
+    
+</script>
+{{/if}}
+{{/section}}

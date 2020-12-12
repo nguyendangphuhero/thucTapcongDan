@@ -1,0 +1,22 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/login.css">
+{{/section}}
+<div class="body-contain">
+	<h3 class="header-title">Đăng nhập</h3>
+	<div class="form-contain">
+		{{#if isFail}}
+		<div class="alert alert-danger">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>Lỗi: </strong>
+			{{errorMessage}}
+		</div>
+		{{/if}}
+		<form action="" method="post">
+			<div class="username-title">Tên đăng nhập</div>
+			<input id="txtUsername" name="username" type="text" class="form-control box" placeholder="Vui lòng nhập tên đăng nhập">
+			<div class="password-title">Mật khẩu</div>
+			<input  id="txtPassword" name="password" type="password" class="form-control box" placeholder="Vui lòng nhập mật khẩu">
+			<button  id="btn-sign-in" type="submit" class="btn btn-success">ĐĂNG NHẬP</button>
+		</form>
+	</div>
+</div>

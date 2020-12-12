@@ -1,0 +1,53 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/profile.css">
+{{/section}}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2 btn-contain">
+			<a class="btn btn-primary order-btn" href="/account/profile">CẬP NHẬT THÔNG TIN</a>
+			<a class="btn btn-primary order-btn btn-down" href="/account/order">LỊCH SỬ MUA HÀNG</a>
+		</div>
+		<div class="col-lg-10">
+			<h3 class="header-title">CẬP NHẬT THÔNG TIN</h3>
+			{{#with profile}}
+			<form action="" method="POST">
+				<div class="col-lg-6">
+					<div class="head-box-title">Họ và tên</div>
+					<input id="txtName" name="name" type="text" class="form-control box" placeholder="Vui lòng nhập họ tên" value="{{name}}">
+					<span id="name-message" class="error-message">{{nameErrorMessage}}</span><br>
+					<div class="head-box-title">Email</div>
+					<input  id="txtEmail" name="email" type="text" class="form-control box" placeholder="Vui lòng nhập email" value="{{email}}">
+					<span id="email-message" class="error-message">{{emailErrorMessage}}</span><br>
+				</div>
+				<div class="col-lg-6">
+					<div class="head-box-title">Ngày sinh</div>
+					<input id="txtDOB" name="dob" type="text" class="form-control box" placeholder="d/m/yyyy" value="{{dob}}">
+					<span id="birthday-message" class="error-message">{{dobErrorMessage}}</span>
+					<div class="row">
+						<div class="col-lg-6">
+							<button class="btn btn-success btn-update" type="submit">
+							<span class="glyphicon glyphicon-edit"></span> Cập nhật
+							</button>
+						</div>
+						<div class="col-lg-6">
+							<button type="button" onclick="$(location).attr('href', '/account/changepassword')" class="btn btn-primary btn-update">
+							<span class="glyphicon glyphicon-lock"></span> Đổi mật khẩu
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			{{/with}}
+		</div>
+	</div>
+</div>
+{{#section 'js'}}
+<script type="text/javascript" src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+	$('#txtDOB').datepicker({
+		format: 'd/m/yyyy',
+		autoclose: true
+	});
+</script>
+{{/section}}

@@ -1,0 +1,132 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/cart.css">
+{{/section}}
+
+{{#if isEmpty}}
+<div class="gh-empty">
+	{{#if isOrderSuccess}}
+	<div class="alert alert-success alert-contain">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Thông báo: </strong>
+		Bạn đã đặt hàng thành công
+	</div>
+	{{/if}}
+	<p>
+		<img src="/image/empty-cart.png" height="200px">
+	</p>
+	<p class="gh-empty-notice">Không có sản phẩm nào trong giỏ hàng của bạn</p>
+	<a class="btn btn-primary gh-empty-btn" href="/">ĐẾN TRANG CHỦ</a>
+</div>
+{{else}}
+<form id="frmIncrease" method="post" action="/cart/increase">
+    <input id="txtIncProId" type="hidden" name="proId">
+</form>
+<form id="frmDecrease" method="post" action="/cart/decrease">
+    <input id="txtDecProId" type="hidden" name="proId">
+</form>
+<form id="frmRemove" method="post" action="/cart/remove">
+	<input id="txtRmvProId" type="hidden" name="proId">
+</form>
+<div class="container gh-body">
+	<h3 class="gh-header">GIỎ HÀNG CỦA BẠN</h3>
+	<div class="row">
+		<div class="col-lg-9">
+			{{#if isError}}
+			<div class="alert alert-danger">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				{{errorMessage}}
+			</div>
+			{{/if}}
+			<div class="gh-table">
+				<table width=100%>
+					<thead>
+						<tr>
+							<th width=10%></th>
+							<th width=30%>Sản phẩm</th>
+							<th width=20%>Đơn giá</th>
+							<th class="gh-table-th-amount" width=15%>Số lượng</th>
+							<th width=20%>Thành tiền</th>
+							<th width=5%></th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each items}}
+						<tr>
+							<td >
+								<a href="/product/detail/{{Product.ProID}}">
+									<img class="gh-table-image" src="/image/products/{{Product.ProID}}/thumb.jpg">
+								</a>
+							</td>
+							<td>
+								<span class="gh-table-name">
+									<a href="/product/detail/{{ProID}}">{{Product.ProName}}</a>
+								</span>
+							</td>
+							<td>
+								<span class="gh-table-price">{{number_format Product.Price}}₫</span>
+							</td>
+							<td>
+								<div class="gh-table-count">
+									<a class="lnkDecrease" href="javascript:;" role="button" data-proid="{{Product.ProID}}">
+										<span class="gh-table-count-btn">-</span>
+									</a>
+									<input name="a" class="gh-table-count-ip" readonly="readonly" value="{{Quantity}}" type="text">
+									<a class="lnkIncrease" href="javascript:;" role="button" data-proid="{{Product.ProID}}">
+										<span class="gh-table-count-btn">+</span>
+									</a>
+								</div>
+							</td>
+							<td>
+								<span class="gh-table-price">{{number_format Amount}}₫</span>
+							</td>
+							<td>
+								<a class="lnkRemove" href="javascript:;" role="button" data-proid="{{Product.ProID}}">
+									<span class="glyphicon glyphicon-remove"></span>
+								</a>
+							</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="gh-total">
+				<div class="row no-gutters">
+					<div class="col-lg-6">
+						<h4>Tổng cộng:</h4>
+					</div>
+					<div class="col-lg-6 gh-money">
+						<h4><strong id="sum">{{number_format sumAmount}}₫</strong></h4>
+					</div>
+				</div>
+			</div>
+			<form method="post" action="/cart">
+    			<button  id="ghid-total-btn" type="submit" class="btn btn-danger btn-lg" onclick="">THANH TOÁN</button>
+			</form>
+		</div>
+	</div>
+</div>
+{{/if}}
+
+{{#section 'js'}}
+	<script type="text/javascript">
+		$('.lnkIncrease').on('click', function() {
+        	var id = $(this).data('proid');
+        	$('#txtIncProId').val(id);
+        	$('#frmIncrease').submit();
+    	});
+
+    	$('.lnkDecrease').on('click', function() {
+        	var id = $(this).data('proid');
+        	$('#txtDecProId').val(id);
+        	$('#frmDecrease').submit();
+    	});
+
+		$('.lnkRemove').on('click', function() {
+        	var id = $(this).data('proid');
+        	$('#txtRmvProId').val(id);
+        	$('#frmRemove').submit();
+    	});
+	</script>
+{{/section}}

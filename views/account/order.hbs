@@ -1,0 +1,76 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/profile.css">
+{{/section}}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2 btn-contain">
+			<a class="btn btn-primary order-btn" href="/account/profile">CẬP NHẬT THÔNG TIN</a>
+			<a class="btn btn-primary order-btn btn-down" href="/account/order">LỊCH SỬ MUA HÀNG</a>
+		</div>
+		<div class="col-lg-10">
+			<h3 class="header-title">LỊCH SỬ MUA HÀNG</h3>
+			{{#if isEmpty}}
+			<div class="order-empty">
+				<img class="order-empty-image" src="/image/empty-order.png">
+				<div class="order-empty-message">Không có đơn hàng để hiển thị</div>
+			</div>
+			{{/if}}
+			{{#each orders}}
+			<div class="order-table">
+				<table width=100%>
+					<thead class="order-table-header">
+						<tr>
+							<td width="30%" class="order-table-date">#{{OrderID}}</td>
+							<td width="40%" class="order-table-status">Đặt ngày {{OrderDate}}</td>
+							<td width="20%" >{{State}}</td>
+							<td width="10%" class="order-table-detail">
+								<a href="javascript: void(0)" class="btn-detail" id="{{OrderID}}">CHI TIẾT</a>
+							</td>
+						</tr>
+					</thead>
+					<tbody id="pane-detail-{{OrderID}}" style="visibility: collapse;">
+						{{#each OrderDetails}}
+						<tr>
+							<td>
+								<a href="/product/detail/{{ProID}}">
+									<img class="order-table-image" src="/image/products/{{ProID}}/thumb.jpg">
+								</a>
+							</td>
+							<td>
+								<span class="order-table-name">{{ProName}}</span>
+							</td>
+							<td>
+								<span class="order-table-quantity"><span class="order-table-quantity-label">Sl:</span>{{Quantity}}</span>
+							</td>
+							<td>
+								<span>{{number_format Amount}}₫</span>
+							</td>
+						</tr>
+						{{/each}}
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="order-table-total-label"><b>Tổng cộng</b></td>
+							<td>{{number_format Total}}₫</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+{{#section 'js'}}
+<script type="text/javascript">
+	$('.btn-detail').bind('click', function() {
+		var id = this.id;
+		var s = '#pane-detail-' + id;
+		var val = $(s).css('visibility');
+		if (val == 'visible') {
+			$(s).css('visibility', 'collapse');
+		} else {
+			$(s).css('visibility', 'visible');
+		}
+	})
+</script>
+{{/section}}
