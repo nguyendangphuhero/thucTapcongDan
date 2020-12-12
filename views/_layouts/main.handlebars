@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mobile Store</title>
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+	{{{_sections.css}}}
+</head>
+<body style="background-color: whitesmoke">
+	<nav id="navbar" class="navbar navbar-inverse navbar-static-top"">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a id="logo-link" class="navbar-brand"href="/home">
+					<img id="logo-image" src="/image/logo.png">
+				</a>
+			</div>
+			<form class="navbar-form navbar-left" method="get" action="/product/search">
+				<div class="input-group">
+					<input  id="search-box" name="content" type="text" class="form-control" placeholder="Bạn tìm gì...">
+					<div class="input-group-btn">
+						<button id="search-btn" class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="/product">
+						SẢN PHẨM
+					</a>
+					<ul class="dropdown-menu">
+						{{#each layoutVM.categories}}
+						<li><a href="/product/byCat/{{CatID}}">{{CatName}}</a></li>
+						{{/each}}
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="/product">
+						NHÀ SẢN XUẤT
+					</a>
+					<ul class="dropdown-menu">
+						{{#each layoutVM.manufacturers}}
+						<li><a href="/product/byMan/{{ManID}}">{{ManName}}</a></li>
+						{{/each}}
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				{{#if layoutVM.isLogged}}
+				<form id="frmLogout" method="post" action="/account/logout"></form>
+				<li><a href="/cart">GIỎ HÀNG({{layoutVM.cartQuantity}})</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="/account/profile">
+						{{upper_case layoutVM.user.f_Name}}
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/account/profile" onclick="">Cập nhật thông tin</a></li>
+						{{#if layoutVM.isAdminLogged}}
+						<li><a href="/admin/product/index" onclick="">Quản trị</a></li>
+						{{/if}}
+						<li><a href="/account/order" onclick="">Lịch sử mua hàng</a></li>
+						<li><a id="lnkLogout" href="javascript:;">Đăng xuất</a></li>
+					</ul>
+				</li>
+				{{else}}
+				<li><a href="/account/register">ĐĂNG KÍ</a></li>
+				<li><a href="/account/login">ĐĂNG NHẬP</a></li>
+				{{/if}}
+			</ul>
+		</div>
+	</nav>
+	{{{body}}}
+	<div class="footer-bottom-area">
+		<div class="footer-contain">
+			<p>© 2018 Mobile Store.</p>
+		</div>
+    </div>
+	<script type="text/javascript" src="/assets/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/san-pham.js"></script>
+	<script type="text/javascript">
+		$('#lnkLogout').on('click', function() {
+			$('#frmLogout').submit();
+		});
+	</script>
+	{{{_sections.js}}}
+</body>
+</html>

@@ -1,0 +1,175 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/product.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+{{/section}}
+
+{{#if noProduct}}
+<div class="noproduct-container">
+    <img src="/image/no-products-found.png" height="240px">
+    <p class="noproduct-message">Rất tiếc trang hiện chưa có sản phẩm. Vui lòng quay lại sau.</p>
+</div>
+{{else}}
+<form id="frmAddToCart" method="post" action="/home">
+    <input id="txtProId" type="hidden" name="proId">
+</form>
+<div id="body">
+<div class="main-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-product">
+                    <h2 class="top-title">Sản phẩm mới nhất</h2>
+                    <div class="product-carousel">
+                        {{#each lastestProducts}}
+                        <div class="card">
+                            <img class="card-img-top" src="/image/products/{{ProID}}/thumb.jpg">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    {{ProName}}
+                                </div>
+                                <p class="price">
+                                    <strong>{{number_format Price}}₫</strong>
+                                </p>
+                                <form method="post" action="/cart/add">
+                                    <a href="/product/detail/{{ProID}}" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                         Chi tiết
+                                    </a>
+                                    {{#if ../layoutVM.isLogged}}
+                                    <a class="btn btn-danger lnkAdd" href="javascript:;" role="button" data-proid="{{ProID}}">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                                        Mua
+                                    </a>
+                                    {{/if}}
+                                </form>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="maincontent-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-product">
+                    <h2 class="top-title">Sản phẩm bán chạy nhất</h2>
+                    <div class="product-carousel">
+                        {{#each mostBuyProducts}}
+                        <div class="card">
+                            <img class="card-img-top" src="/image/products/{{ProID}}/thumb.jpg">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    {{ProName}}
+                                </div>
+                                <p class="price">
+                                    <strong>{{number_format Price}}₫</strong>
+                                </p>
+                                <form method="post" action="/cart/add">
+                                    <a href="/product/detail/{{ProID}}" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                         Chi tiết
+                                    </a>
+                                    {{#if ../layoutVM.isLogged}}
+                                    <a class="btn btn-danger lnkAdd" href="javascript:;" role="button" data-proid="{{ProID}}">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                                        Mua
+                                    </a>
+                                    {{/if}}
+                                </form>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="maincontent-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-product">
+                    <h2 class="top-title">Sản phẩm được xem nhiều nhất</h2>
+                    <div class="product-carousel">
+                        {{#each mostViewProducts}}
+                        <div class="card">
+                            <img class="card-img-top" src="/image/products/{{ProID}}/thumb.jpg">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    {{ProName}}
+                                </div>
+                                <p class="price">
+                                    <strong>{{number_format Price}}₫</strong>
+                                </p>
+                                <form method="post" action="/cart/add">
+                                    <a href="/product/detail/{{ProID}}" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                         Chi tiết
+                                    </a>
+                                    {{#if ../layoutVM.isLogged}}
+                                    <a class="btn btn-danger lnkAdd" href="javascript:;" role="button" data-proid="{{ProID}}">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                                        Mua
+                                    </a>
+                                    {{/if}}
+                                </form>
+                            </div>
+                        </div>
+                        {{/each}}                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{{/if}}
+
+{{#section 'js'}}
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
+<!-- jQuery sticky menu -->
+<script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.sticky.js"></script>
+
+<!-- jQuery easing -->
+<script type="text/javascript" src="/assets/js/jquery.easing.1.3.min.js"></script>
+
+<!-- Main Script -->
+<script type="text/javascript" src="/assets/js/main.js"></script>
+
+<!-- Slider -->
+<script type="text/javascript" src="/assets/js/bxslider.min.js"></script>
+<script type="text/javascript" src="/assets/js/script.slider.js"></script>
+
+<script type="text/javascript">
+    $('.lnkAdd').on('click', function() {
+        var id = $(this).data('proid');
+        $('#txtProId').val(id);
+        $('#frmAddToCart').submit();
+    });
+
+    $('#body').css('opacity', 0);
+    $(window).load(function() {
+        $('#body').css('opacity', 1);
+    });
+</script>
+
+{{#if isAlert}}
+<script type="text/javascript">
+    setTimeout(function() {
+        alert("{{alertMessage}}");
+    }, 300);
+    
+</script>
+{{/if}}
+{{/section}}

@@ -1,0 +1,71 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{{/section}}
+
+<h3 class="my-container header-title">Tạo tài khoản</h3>
+<div class="my-container body-container">
+	{{#if isSuccess}}
+	<div class="alert alert-success">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Thông báo: </strong>
+		Đăng kí thành công
+	</div>
+	{{/if}}
+
+	{{#if isFail}}
+	<div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Lỗi: </strong>
+		Đăng kí thất bại
+	</div>
+	{{/if}}
+	<form id="registerForm" action="" method="POST" role="form" onsubmit="return validate(this);">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="head-box-title">Tên đăng nhập</div>
+				<input  id="txtUsername" name="username" type="text" class="form-control box" placeholder="Vui lòng nhập tên đăng nhập" value="{{username}}">
+				<span id="username-message" class="error-message">{{usernameErrorMessage}}</span><br>
+				<div class="box-title">Mật khẩu</div>
+				<input  id="txtPassword" name="password" type="password" class="form-control box" placeholder="Mật khẩu tối thiểu 4 kí tự" value="{{password}}">
+				<span id="password-message" class="error-message">{{passwordErrorMessage}}</span><br>
+				<div class="box-title">Nhập lại mật khẩu</div>
+				<input  id="txtRetype" name="retype" type="password" class="form-control box" placeholder="Vui lòng nhập lại mật khẩu" value="{{retype}}">
+				<span id="retype-message" class="error-message">{{retypeErrorMessage}}</span><br>
+				<div class="box-title">Họ và tên</div>
+				<input  id="txtName" name="name" type="text" class="form-control box" placeholder="Vui lòng nhập họ tên" value="{{name}}">
+				<span id="name-message" class="error-message">{{nameErrorMessage}}</span><br>
+			</div>
+			<div class="col-lg-6">
+				<div class="head-box-title">Email</div>
+				<input  id="txtEmail" name="email" type="text" class="form-control box" placeholder="Vui lòng nhập email" value="{{email}}">
+				<span id="email-message" class="error-message">{{emailErrorMessage}}</span><br>
+				<div class="box-title">Ngày sinh</div>
+				<input id="txtDOB" name="dob" type="text" class="form-control box" placeholder="d/m/yyyy" value="{{dob}}">
+				<span id="birthday-message" class="error-message">{{dobErrorMessage}}</span><br>
+				<div class="g-recaptcha" data-sitekey="6LcG61QUAAAAAPD4CRTXZj51BLpKxV_rVsKYX3mC"></div>
+				<span id="captcha-message" class="error-message"></span><br>
+				<button class="btn btn-success btn-register" type="submit">ĐĂNG KÍ</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+{{#section 'js'}}
+	<script type="text/javascript" src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+		$('#txtDOB').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+
+		var validate = function() {
+		    if(grecaptcha.getResponse().length === 0) {
+		        $('#captcha-message').html("Chưa nhập captcha!");
+		        return false;
+		    }
+		    return true;
+		}
+	</script>
+{{/section}}
