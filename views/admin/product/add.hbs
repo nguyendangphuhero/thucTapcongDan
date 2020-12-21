@@ -1,0 +1,63 @@
+{{#section 'title'}}
+<h3>Thêm sản phẩm</h3>
+{{/section}}
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
+{{/section}}
+<form action="" method="POST" style="margin: 30px">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="head-box-title">Tên sản phẩm</div>
+			<input name="ProName" type="text" class="form-control box" placeholder="Nhập tên sản phẩm" required>
+			<div class="box-title">Mô tả</div>
+			<input name="TinyDes" type="text" class="form-control box" placeholder="Nhập mô tả sản phẩm" required>
+			<div class="box-title">Thông tin chi tiết</div>
+			<input name="FullDes" type="text" class="form-control box" placeholder="Nhập thông tin chi tiết sản phẩm" required>
+			<div class="box-title">Giá sản phẩm</div>
+			<input name="Price" type="number" class="form-control box" placeholder="Nhập giá sản phẩm" required>
+			<div class="box-title">Số lượng</div>
+			<input name="Quantity" type="number" class="form-control box" placeholder="Nhập số lượng sản phẩm" required>
+		</div>
+		<div class="col-lg-6">
+			<div class="head-box-title">Ngày tiếp nhận</div>
+			<input id="rDate" name="ReceiveDate" type="text" class="form-control box" placeholder="yyyy-mm-dd" required>
+			<div class="box-title">Danh mục</div>
+			<select name="CatID" class="form-control box">
+				{{#each categories}}
+				<option value="{{CatID}}">{{CatName}}</option>
+				{{/each}}
+			</select>
+			<div class="box-title">Nhà sản xuất</div>
+			<select name="ManID" class="form-control box">
+				{{#each manufacturers}}
+				<option value="{{ManID}}">{{ManName}}</option>
+				{{/each}}
+			</select>
+			<div class="box-title">Xuất xứ</div>
+			<input name="Origin" type="text" class="form-control box" placeholder="Nhập xuất xứ sản phẩm" required>
+			<div class="row">
+				<div class="col-lg-6">
+					<button class="btn btn-success btn-edit-product" type="submit">
+						<span class="glyphicon glyphicon-plus"></span> Thêm sản phẩm
+					</button>
+				</div>
+				<div class="col-lg-6">
+
+					<button type="button" onclick="$(location).attr('href', '/admin/product/index')" class="btn btn-danger btn-edit-product">
+						<span class="glyphicon glyphicon-list"></span> Quay lại
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+{{#section 'js'}}
+<script type="text/javascript" src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+	$('#rDate').datepicker({
+		format: 'yyyy-mm-dd',
+		autoclose: true
+	});
+</script>
+{{/section}}

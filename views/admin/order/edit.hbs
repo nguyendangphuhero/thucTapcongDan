@@ -1,0 +1,42 @@
+{{#section 'title'}}
+<h3>Quản lý đơn hàng</h3>
+{{/section}}
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
+{{/section}}
+{{#with order}}
+<form action="" method="POST" style="margin: 30px">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="head-box-title">Mã đơn hàng</div>
+			<input name="OrderID" type="text" class="form-control box" value="{{OrderID}}" readonly>
+			<div class="box-title">Ngày đặt hàng</div>
+			<input name="OrderDate" type="text" class="form-control box" value="{{OrderDate}}" readonly>
+			<div class="box-title">Người đặt</div>
+			<input name="UserID" type="text" class="form-control box" value="{{UserID}}" readonly>
+		</div>
+		<div class="col-lg-6">
+			<div class="head-box-title">Tổng tiền</div>
+			<input name="Total" type="text" class="form-control box" value="{{number_format Total}}" readonly>
+			<div class="box-title">Tình trạng đơn hàng</div>
+			<select name="State" class="form-control box">
+				{{#each ../ states}}
+				<option value="{{stt}}">{{sttString}}</option>
+				{{/each}}
+			</select>
+			<div class="row">
+				<div class="col-lg-6">
+					<button class="btn btn-success btn-edit-product" type="submit">
+					<span class="glyphicon glyphicon-edit"></span> Chỉnh sửa
+					</button>
+				</div>
+				<div class="col-lg-6">
+					<button type="button" onclick="$(location).attr('href', '/admin/order/index')" class="btn btn-danger btn-edit-product">
+					<span class="glyphicon glyphicon-list"></span> Quay lại
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+{{/with}}

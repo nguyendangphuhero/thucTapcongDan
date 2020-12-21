@@ -1,0 +1,31 @@
+{{#section 'title'}}
+	<h3>Quản lý danh mục</h3>
+	<a class="btn btn-primary" href="/admin/category/add" role="button">
+		<span class="glyphicon glyphicon-plus"></span> Thêm danh mục
+	</a>
+{{/section}}
+<table class="table table-hover table-bordered table-striped" id="table_product">
+	<thead>
+		<tr>
+			<th class="td_center">Mã danh mục</th>
+			<th class="td_center">Tên danh mục</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each categories}}
+		<tr>
+			<td class="td_center td_bold">{{CatID}}</td>
+			<td class="td_center">{{CatName}}</td>
+			<td class="td_center">
+				<a class="btn btn-warning btn-sm" href="/admin/category/edit?id={{CatID}}" role="button">
+					<span class="glyphicon glyphicon-edit"></span>	
+				</a>
+				<a class="btn btn-danger btn-sm" href="/admin/category/delete?id={{CatID}}" role="button">
++					<span class="glyphicon glyphicon-trash"></span>
++				</a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
