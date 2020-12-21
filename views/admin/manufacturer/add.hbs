@@ -1,0 +1,27 @@
+{{#section 'title'}}
+	<h3>Thêm nhà sản xuất</h3>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
+{{/section}}
+<form action="" method="POST" style="margin: 30px">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="head-box-title">Tên nhà sản xuất</div>
+			<input name="ManName" type="text" class="form-control box" placeholder="Nhập tên nhà sản xuất" required>
+			<div class="row">
+				<div class="col-lg-6">
+					<button class="btn btn-success btn-edit-cat" type="submit">
+					<span class="glyphicon glyphicon-edit"></span> Thêm nhà sản xuất
+					</button>
+				</div>
+				<div class="col-lg-6">
+					<button type="button" onclick="$(location).attr('href', '/admin/manufacturer/index')" class="btn btn-danger btn-edit-cat">
+					<span class="glyphicon glyphicon-list"></span> Quay lại
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

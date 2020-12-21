@@ -1,0 +1,31 @@
+{{#section 'title'}}
+<h3>Chỉnh sửa danh mục</h3>
+{{/section}}
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+{{/section}}
+{{#with category}}
+<form action="" method="POST" style="margin: 30px">
+	<div class="row">
+		<div class="col-lg-6">
+			<input name="CatID" type="text" class="form-control box hidden" value="{{CatID}}">
+			<div class="head-box-title">Tên danh mục</div>
+			<input name="CatName" type="text" class="form-control box" placeholder="Nhập tên danh mục" value="{{CatName}}" required>
+			<div class="box-title">Số lượng sản phẩm</div>
+			<input type="text" class="form-control box" value="{{ProCount}}" readonly>
+			<div class="row">
+				<div class="col-lg-6">
+					<button class="btn btn-success btn-register" type="submit">
+					<span class="glyphicon glyphicon-edit"></span> Chỉnh sửa
+					</button>
+				</div>
+				<div class="col-lg-6">
+					<button type="button" onclick="$(location).attr('href', '/admin/category/index')" class="btn btn-danger btn-register">
+					<span class="glyphicon glyphicon-list"></span> Quay lại
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+{{/with}}

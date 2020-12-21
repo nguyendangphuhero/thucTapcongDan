@@ -1,0 +1,40 @@
+{{#section 'title'}}
+	<h3>Xoá nhà sản xuất</h3>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+{{/section}}
+{{#with manufacturer}}
+<form action="" method="POST" style="margin: 30px">
+	<div class="row">
+		<div class="col-lg-6">
+			<input name="ManID" type="text" class="form-control box hidden" value="{{ManID}}">
+			<div class="head-box-title">Tên nhà sản xuất</div>
+			<input name="ManName" type="text" class="form-control box" placeholder="Nhập tên nhà sản xuất" value="{{ManName}}" required>
+			<div class="box-title">Số lượng sản phẩm</div>
+			<input type="text" class="form-control box" value="{{ProCount}}" readonly>
+			<div class="row">
+				{{#if ../ canDelete}}
+				<div class="col-lg-6">
+					<button class="btn btn-success btn-register" type="submit">
+					<span class="glyphicon glyphicon-edit"></span> Xoá
+					</button>
+				</div>
+				{{else}}
+				<div class="col-lg-6">
+					<button type="button" onclick="$(location).attr('href', '/admin/manufacturer/index')" class="btn btn-danger btn-register">
+					<span class="glyphicon glyphicon-edit"></span> Không thể xoá
+					</button>
+				</div>
+				{{/if}}
+				<div class="col-lg-6">
+					<button type="button" onclick="$(location).attr('href', '/admin/manufacturer/index')" class="btn btn-primary btn-register">
+					<span class="glyphicon glyphicon-list"></span> Quay lại
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+{{/with}}
